@@ -1,5 +1,6 @@
-package Tugas1;
+package Tugas2;
 
+import Tugas1.*;
 import static java.awt.SystemColor.text;
 import javax.swing.JOptionPane;
 
@@ -386,6 +387,8 @@ public class Tugas extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Tugas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
