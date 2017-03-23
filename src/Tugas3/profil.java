@@ -228,17 +228,17 @@ public class profil extends javax.swing.JFrame {
 
         jLabel14.setBackground(new java.awt.Color(153, 255, 0));
         jLabel14.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(0, 204, 204));
+        jLabel14.setForeground(new java.awt.Color(204, 204, 204));
         jLabel14.setText("Line                 : Sulistiyanidwi");
 
         jLabel15.setBackground(new java.awt.Color(153, 255, 0));
         jLabel15.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(0, 204, 204));
+        jLabel15.setForeground(new java.awt.Color(204, 204, 204));
         jLabel15.setText("Email               : Dwisulistiyani20@gmail.com");
 
         jLabel16.setBackground(new java.awt.Color(153, 255, 0));
         jLabel16.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(0, 204, 204));
+        jLabel16.setForeground(new java.awt.Color(204, 204, 204));
         jLabel16.setText("Instagram        : Sulistiyanidwi");
 
         javax.swing.GroupLayout panelinformasiLayout = new javax.swing.GroupLayout(panelinformasi);
@@ -276,7 +276,7 @@ public class profil extends javax.swing.JFrame {
 
         jLabel17.setBackground(new java.awt.Color(204, 255, 102));
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel17.setForeground(new java.awt.Color(204, 204, 204));
         jLabel17.setText("Thank you :)");
 
         javax.swing.GroupLayout panelabLayout = new javax.swing.GroupLayout(panelab);
