@@ -13,22 +13,22 @@ import java.sql.*;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 public class formdatabuku extends javax.swing.JFrame {
-    private DefaultTableModel model;
-    private Connection con = koneksi.getConnection();
-    private Statement stt;
-    private ResultSet rss;
+    private DefaultTableModel model;//untuk membuat model pada tabel
+    private Connection con = koneksi.getConnection();//untuk mengambil koneksi
+    private Statement stt;//untuk eksekusi qury database
+    private ResultSet rss;//untuk penampung data dari database
     
     
-    private int baris;
-    private boolean oke=true;
+    private int baris; //pendeklarasian variable baris
+    private boolean oke=true; //pendeklarasian variable untuk verifikasi yang bernilai boolean
     /**
      * Creates new form formdatabuku
      */
-    public formdatabuku() {
-        initComponents();
+    public formdatabuku() { //method form yang dibuat
+        initComponents(); 
         
     }
-     private void InitTable(){
+     private void InitTable(){ //method formdatabuku
          model = new DefaultTableModel();
          model.addColumn("ID");  
          model.addColumn("JUDUL");
@@ -38,7 +38,7 @@ public class formdatabuku extends javax.swing.JFrame {
          jTable1.setModel(model);
      }
      
-     private void TampilData(){
+     private void TampilData(){//method untuk tampil data
          try{
              String sql = "SELECT * FROM buku";
              stt = con.createStatement();
@@ -51,49 +51,49 @@ public class formdatabuku extends javax.swing.JFrame {
                  o[3] = rss.getString("harga");
                  model.addRow(o);
              }
-         }catch(SQLException e){
+         }catch(SQLException e){//digunakan untuk menangkap kesalahan
              System.out.println(e.getMessage());
          }
          
      }
      
-     private void TambahData(String judul, String penulis, String harga){
+     private void TambahData(String judul, String penulis, String harga){ //method untuk tambah data
          try{
              String sql = "INSERT INTO buku VALUES (NULL,'"+judul+"','"+penulis+"',"+harga+")";
              stt=con.createStatement();
              stt.executeUpdate(sql);
-    }catch(SQLException e){
+    }catch(SQLException e){ //digunakan untuk menangkap kesalahan
              System.out.println(e.getMessage());
          }
          
      }
      
-     private void UbahData(String judul, String penulis, String harga, String id){
+     private void UbahData(String judul, String penulis, String harga, String id){//method untuk ubah data
          try{
              String sql = "UPDATE buku SET judul='"+judul+"', penulis='"+penulis+"', harga='"+harga+"' WHERE id='"+id+"'";
              stt=con.createStatement();
              stt.executeUpdate(sql);
              
-    }catch(SQLException e){
+    }catch(SQLException e){//digunakan untuk menangkap kesalahan
              System.out.println(e.getMessage());
          }
          
      }
      
-     private void HapusData(String id, int baris){
+     private void HapusData(String id, int baris){//method dari hapus data
          try{
              String sql = "DELETE FROM buku WHERE id='"+id+"'";
                   
              stt=con.createStatement();
              stt.executeUpdate(sql);
              model.removeRow(baris);
-    }catch(SQLException e){
+    }catch(SQLException e){//digunakan untuk menangkap kesalahan
              System.out.println(e.getMessage());
          }
          
      }
      
-private void CariData(){
+private void CariData(){//method dari cari data
          try{
              String sql = "SELECT * FROM buku WHERE judul='"+search.getText()+"'|| penulis='"+search.getText()+"'|| harga='"+search.getText()+"'";
              stt = con.createStatement();
@@ -106,13 +106,13 @@ private void CariData(){
                  o[3] = rss.getString("harga");
                  model.addRow(o);
              }
-         }catch(SQLException e){
+         }catch(SQLException e){//digunakan untuk menangkap kesalahan
              System.out.println(e.getMessage());
          }
          
      }
 
-private void oce(String judul, String penulis, String harga){
+private void oce(String judul, String penulis, String harga){//method untuk verifikasi jika ada data yang sama
          try{
              String sql = "SELECT * FROM buku ";
              stt = con.createStatement();
@@ -130,7 +130,7 @@ private void oce(String judul, String penulis, String harga){
              }
              if(oke==true)
                  TambahData(judul,penulis,harga);
-         }catch(SQLException e){
+         }catch(SQLException e){ //digunakan untuk menangkap kesalahan
              System.out.println(e.getMessage());
          }
          
@@ -439,12 +439,12 @@ private void oce(String judul, String penulis, String harga){
 
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
         // TODO add your handling code here:
-        InitTable();
-        TampilData();
+        InitTable();//untuk menghubungkan data inputan yang ada ke tabel
+        TampilData();//untuk menampilkan data
     }//GEN-LAST:event_formComponentShown
 
     private void butsimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butsimpanActionPerformed
-        // TODO add your handling code here:
+        //untuk action tombol button simpan
         String judul = txtjudul.getText();
         String penulis = compenulis.getSelectedItem().toString();
         String harga = txtharga.getText();
@@ -454,7 +454,7 @@ private void oce(String judul, String penulis, String harga){
     }//GEN-LAST:event_butsimpanActionPerformed
 
     private void butubahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butubahActionPerformed
-        // TODO add your handling code here:
+        //untuk action tombol button ubah 
         int baris = jTable1.getSelectedRow();
         
         jTable1.setValueAt(txtjudul.getText(),baris,1);
@@ -470,7 +470,7 @@ private void oce(String judul, String penulis, String harga){
     }//GEN-LAST:event_butubahActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        // TODO add your handling code here:
+             //digunakan untuk get data yang ada ketika tombol yang dipilih di klik 
         int baris = jTable1.getSelectedRow();
         
         String judul = jTable1.getValueAt(baris,1).toString();
@@ -484,14 +484,14 @@ private void oce(String judul, String penulis, String harga){
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void buthapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buthapusActionPerformed
-        // TODO add your handling code here:
+         //untuk action tombol button hapus
         int baris=jTable1.getSelectedRow();
         String id = jTable1.getValueAt(baris,0).toString();
         HapusData(id,baris);
     }//GEN-LAST:event_buthapusActionPerformed
 
     private void butkeluarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_butkeluarMouseClicked
-        // TODO add your handling code here:
+         //untuk action tombol button keluar
         System.exit(0);
     }//GEN-LAST:event_butkeluarMouseClicked
 
@@ -508,9 +508,9 @@ private void oce(String judul, String penulis, String harga){
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        model.getDataVector().removeAllElements();
-        model.fireTableDataChanged();
-        CariData();
+        model.getDataVector().removeAllElements();//untuk menghapus semua elemen pada tabel
+        model.fireTableDataChanged();//untuk mengubah dan menghapus data yang ada pada tabel
+        CariData();//digunakan untuk mencari data
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
