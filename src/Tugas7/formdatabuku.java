@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Tugas6;
+package Tugas7;
 
 /**
  *
  * @author Dwi Sulistiyani
  */
+import Tugas6.*;
 import java.sql.*;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -112,7 +113,7 @@ private void CariData(){//method dari cari data
          
      }
 
-private void oce(String judul, String penulis, String harga){//method untuk verifikasi jika ada data yang sama
+private void oce(String judul, String penulis, String harga){//method untuk verifikasi jika ada data yang sama jika data yan  di inputkan telah ada maka di sini terjadi pemrosesan yang akan memberi tahu data telah ada jika memang yang diinputkan telah ada
          try{
              String sql = "SELECT * FROM buku ";
              stt = con.createStatement();
@@ -565,6 +566,7 @@ private void oce(String judul, String penulis, String harga){//method untuk veri
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(formdatabuku.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
